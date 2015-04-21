@@ -38,19 +38,23 @@
                     <h3>Shelter Animals</h3>
                     <ul>
                         <li ng-repeat="item in animals">
-                                <a ng-click="adoptAnimal(item)">{{ item.name }}</a> the {{ item.type }}
-                                <span ng-hide="edit" ng-click="edit = true"><a>
-                                edit</a></span>
-                            <form ng-show = "edit" ng-submit="edit = false">
-                                <input type="text" ng-model="item.name">
-                                <button class="btn btn-primary btn-xs">Go!</button>
-                            </form>
+                            <a ng-click="adoptAnimal(item)">
+                                {{ item.name }}
+                            </a> the {{ item.type }}
+                            <span ng-hide="edit" ng-click="edit = true">
+                                <a>edit</a>
+                            </span>
+                            <div class="form-group form-group-sm">
+                                <form ng-show = "edit" class="form-inline" id="formGroupInputSmall" ng-submit="edit = false">
+                                    <input type="text" class="form-control" ng-model="item.name">
+                                    <button class="btn btn-primary btn-sm">Go!</button>
+                                </form>
+                            </div>
                             <button ng-click="deleteAnimal(item)" class="btn btn-warning btn-xs">Kill</button>
                         </li>
                     </ul>
 
                     <h3>Adopted Animals</h3>
-                    <h5>Click one to abandon your responsibilities</h5>
                     <ul>
                         <li ng-repeat="item in adoptedAnimals">
                             {{ item.name }} the {{ item.type }}
