@@ -17,7 +17,17 @@
                     <h2>Add Animals</h2>
                     <form ng-submit="addAnimal()">
                         <div class="form-group">
-                            <input type="text" ng-model="animalName" class="form-control" placeholder="Enter animal name">
+                            <input type="text" ng-model="animalName" class="form-control" placeholder="Enter animal name" required>
+
+                        </div>
+
+                        <div class="form-group">
+                            <select class="form-control" ng-model="animalType" required>
+                                <option value="" selected disabled>Select animal type</option>
+                                <option value="dog">Dog</option>
+                                <option value="cat">Cat</option>
+                                <option value="dolphin">Dolphin</option>
+                            </select>
                         </div>
                         <button type="submit" class="btn btn-default">Add</button>
                     </form>
@@ -26,6 +36,7 @@
                     <ul>
                         <li ng-repeat="item in animals">
                             {{ item.name }}
+                            {{ item.type }}
                         </li>
                     </ul>
                 </div>
