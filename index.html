@@ -62,14 +62,14 @@
                     </ul>
 
                     <h2>Search Animals</h2>
-                    <input type="text" ng-model="query">
+                    <input type="text" ng-model="query.name">
 
                     <h3>All Animals</h3>
                     <ul>
-                        <li ng-repeat="animal in animals | filter:query">
+                        <li ng-repeat="animal in animals | filter:query:startsWith">
                             {{ animal.name }}
                         </li>
-                        <li ng-repeat="adopted in adoptedAnimals | filter:query">
+                        <li ng-repeat="adopted in adoptedAnimals | filter:query:startsWith">
                             {{ adopted.name }}
                         </li>
                     </ul>

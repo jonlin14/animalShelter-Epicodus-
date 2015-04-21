@@ -28,8 +28,10 @@ AnimalShelter.controller("AnimalCtrl", function AnimalCtrl($scope) {
             var index = $scope.adoptedAnimals.indexOf(animal);
             $scope.adoptedAnimals.splice(index, 1);
         }
-
     }
 
-
+    $scope.startsWith = function(actual, expected) {
+        var lowerStr = (actual + "").toLowerCase();
+        return lowerStr.indexOf(expected.toLowerCase()) === 0;
+    }
 });
