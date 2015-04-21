@@ -3,6 +3,7 @@
         <title>Animal Shelter</title>
 
         <link rel="stylesheet" href="css/bootstrap.css">
+        <link rel="stylesheet" href="css/styles.css">
 
         <script src="lib/angular.js"></script>
         <script src="app.js"></script>
@@ -35,18 +36,24 @@
                     <h3>All Animals</h3>
                     <ul>
                         <li ng-repeat="item in animals">
-                            <a ng-click="adoptAnimal(item)">
-                                {{ item.name }}
+                                <a ng-click="adoptAnimal(item)">{{ item.name }}</a>
                                 {{ item.type }}
-                            </a>
+                                <span ng-hide="edit" ng-click="edit = true"><a>
+                                edit</a></span>
+                            <form ng-show = "edit" ng-submit="edit = false">
+                                <input type="text" ng-model="item.name">
+                                <button type= "btn btn-primary">Go!</button>
+                            </form>
                         </li>
                     </ul>
 
                     <h3>Adopted Animals</h3>
                     <ul>
                         <li ng-repeat="item in adoptedAnimals">
-                            {{ item.name }}
-                            {{ item.type }}
+                            <a ng-click="unadoptAnimal(item)">
+                                {{ item.name }}
+                                {{ item.type }}
+                            </a>
                         </li>
                     </ul>
                 </div>

@@ -14,5 +14,11 @@ AnimalShelter.controller("AnimalCtrl", function AnimalCtrl($scope) {
         $scope.adoptedAnimals.push(animal);
     }
 
+    $scope.unadoptAnimal = function(animal) {
+        var index = $scope.adoptedAnimals.indexOf(animal);
+        $scope.adoptedAnimals.splice(index, 1);
+        $scope.animals.push(animal);
+    }
+
 
 });
