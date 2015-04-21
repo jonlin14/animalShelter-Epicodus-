@@ -28,32 +28,49 @@
                                 <option value="dog">Dog</option>
                                 <option value="cat">Cat</option>
                                 <option value="dolphin">Dolphin</option>
+                                <option value="sloth">Sloth</option>
+                                <option value="bear">Bear</option>
                             </select>
                         </div>
                         <button type="submit" class="btn btn-default">Add</button>
                     </form>
 
-                    <h3>All Animals</h3>
+                    <h3>Shelter Animals</h3>
                     <ul>
                         <li ng-repeat="item in animals">
-                                <a ng-click="adoptAnimal(item)">{{ item.name }}</a>
-                                {{ item.type }}
+                                <a ng-click="adoptAnimal(item)">{{ item.name }}</a> the {{ item.type }}
                                 <span ng-hide="edit" ng-click="edit = true"><a>
                                 edit</a></span>
                             <form ng-show = "edit" ng-submit="edit = false">
                                 <input type="text" ng-model="item.name">
-                                <button type= "btn btn-primary">Go!</button>
+                                <button class="btn btn-primary btn-xs">Go!</button>
                             </form>
+                            <button ng-click="deleteAnimal(item)" class="btn btn-warning btn-xs">Kill</button>
                         </li>
                     </ul>
 
                     <h3>Adopted Animals</h3>
+                    <h5>Click one to abandon your responsibilities</h5>
                     <ul>
                         <li ng-repeat="item in adoptedAnimals">
+                            {{ item.name }} the {{ item.type }}
                             <a ng-click="unadoptAnimal(item)">
-                                {{ item.name }}
-                                {{ item.type }}
+                                abandon
                             </a>
+                            <button ng-click="deleteAnimal(item)" class="btn btn-warning btn-xs">Kill</button>
+                        </li>
+                    </ul>
+
+                    <h2>Search Animals</h2>
+                    <input type="text" ng-model="query">
+
+                    <h3>All Animals</h3>
+                    <ul>
+                        <li ng-repeat="animal in animals | filter:query">
+                            {{ animal.name }}
+                        </li>
+                        <li ng-repeat="adopted in adoptedAnimals | filter:query">
+                            {{ adopted.name }}
                         </li>
                     </ul>
                 </div>

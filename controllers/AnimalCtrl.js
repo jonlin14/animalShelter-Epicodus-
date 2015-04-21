@@ -20,5 +20,16 @@ AnimalShelter.controller("AnimalCtrl", function AnimalCtrl($scope) {
         $scope.animals.push(animal);
     }
 
+    $scope.deleteAnimal = function(animal) {
+        if ($scope.animals.indexOf(animal) !== -1) {
+            var index = $scope.animals.indexOf(animal);
+            $scope.animals.splice(index, 1);
+        } else {
+            var index = $scope.adoptedAnimals.indexOf(animal);
+            $scope.adoptedAnimals.splice(index, 1);
+        }
+
+    }
+
 
 });
