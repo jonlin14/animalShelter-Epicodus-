@@ -1,1 +1,1 @@
-var Restaurant = angular.module('Restaurant', []);
+var AnimalShelter = angular.module('AnimalShelter', []);

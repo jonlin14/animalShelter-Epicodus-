@@ -1,17 +1,35 @@
-<html>
+<html ng-app="AnimalShelter">
     <head>
-        <title>Restaurant Pricing</title>
+        <title>Animal Shelter</title>
 
         <link rel="stylesheet" href="css/bootstrap.css">
 
         <script src="lib/angular.js"></script>
         <script src="app.js"></script>
-        <script src="controllers/IceCreamCtrl.js"></script>
-        <script src="controllers/PizzaCtrl.js"></script>
+        <script src="controllers/AnimalCtrl.js"></script>
     </head>
     <body>
-        <div class="container">
-            <h1>Restaurant Pricing</h1>
+        <div class="container" ng-controller="AnimalCtrl">
+            <h1>Welcome to Animal Shelter</h1>
+
+            <div class="row">
+                <div class="col-md-6">
+                    <h2>Add Animals</h2>
+                    <form ng-submit="addAnimal()">
+                        <div class="form-group">
+                            <input type="text" ng-model="animalName" class="form-control" placeholder="Enter animal name">
+                        </div>
+                        <button type="submit" class="btn btn-default">Add</button>
+                    </form>
+
+                    <h3>All Animals</h3>
+                    <ul>
+                        <li ng-repeat="item in animals">
+                            {{ item.name }}
+                        </li>
+                    </ul>
+                </div>
+            </div>
         </div>
     </body>
 </html>
