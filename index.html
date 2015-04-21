@@ -35,6 +35,16 @@
                     <h3>All Animals</h3>
                     <ul>
                         <li ng-repeat="item in animals">
+                            <a ng-click="adoptAnimal(item)">
+                                {{ item.name }}
+                                {{ item.type }}
+                            </a>
+                        </li>
+                    </ul>
+
+                    <h3>Adopted Animals</h3>
+                    <ul>
+                        <li ng-repeat="item in adoptedAnimals">
                             {{ item.name }}
                             {{ item.type }}
                         </li>
